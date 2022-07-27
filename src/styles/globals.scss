@@ -1,0 +1,63 @@
+:root {
+  --white: #fff;
+  --black: #000;
+  --grey: #8c8c8c;
+
+  --ff-heading: "PPObjectSans-Heavy";
+  --ff-body: "PPObjectSans-Regular";
+
+  --ff-bold: 800:
+  --ff-regular: 400;
+
+  --fs-massive: clamp(2rem, 10vw + 1rem, 11.25rem);
+  --fs-big: clamp(1.7rem, 10vw + 1rem, 4.688rem);
+  --fs-medium: clamp(1.25rem, 10vw + 1rem, 2.625rem);
+  --fs-regular: 1.5rem;
+  --fs-small: 1.25rem;
+}
+
+@font-face {
+  font-family: "PPObjectSans-Heavy";
+  src: url("/fonts/PPObjectSans-Heavy.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "PPObjectSans-Regular";
+  src: url("/fonts/PPObjectSans-Regular.otf") format("opentype");
+}
+
+.wrap {
+  width: min(100% - 4rem, 130ch);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html, body{
+  height: 100%;
+}
+
+// TYPOGAPHY
+body {
+  font-family: var(--ff-body);
+  font-size: 16px;
+}
+
+.title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-massive);
+}
+
+.subtitle{
+  font-family: var(--ff-heading);
+  font-size: var(--fs-big);
+}
+
+.link {
+  color: var(--grey);
+  text-decoration: none;
+  font-size: var(--fs-small);
+}
+
+p{
+  font-size: var(--fs-regular);
+}

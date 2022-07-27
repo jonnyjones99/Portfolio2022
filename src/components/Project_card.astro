@@ -1,0 +1,93 @@
+---
+export interface Props {
+	title: string;
+	body: string;
+	body2: string;
+	jobtitle: string;
+	href: string;
+	imglink: string;
+	imgalt: string;
+	projectnum: string
+}
+const { title, body, body2, jobtitle, href, imglink, imgalt, projectnum } = Astro.props;
+---
+
+<article class="project-card">
+	<div class="project-card__left">
+
+		<p class="project-card__num">
+			{projectnum}
+		</p>
+
+		<h2 class="project-card__title subtitle">
+			{title}
+		</h2>
+
+		<p class="project-card__job-title">
+			{jobtitle}
+		</p>
+
+		<p class="project-card__body">
+			{body}
+		</p>
+
+		<p class="project-card__body project-card__body-second">
+			{body2}
+		</p>
+
+		<a href={href} class="project-card__link">
+			<span>VIEW PROJECT</span>
+			<img src="/public/svg/arrow.svg" alt="Click me arrow" class="project-card__link-arrow">
+		</a>
+
+	</div>
+	<div class="project-card__right">
+		<img src={imglink} alt={imgalt} class="project-card__img">
+	</div>
+</article>
+
+<style lang="scss">
+	.project-card {
+		display: flex;
+		justify-content: space-between;
+
+		&__left {
+			margin-right: 2rem;
+		}
+
+		&__num {
+			font-family: var(--ff-heading);
+			font-size: var(--fs-small);
+			margin-bottom: 4rem;
+		}
+
+		&__title {
+			margin-bottom: 4rem;
+		}
+
+		&__job-title {
+			margin-bottom: 4rem;
+		}
+
+		&__body {
+			margin-bottom: 1rem;
+			font-size: var(--fs-regular);
+
+			&-second {
+				margin-bottom: 8rem;
+			}
+		}
+
+		&__link {
+			color: var(--grey);
+			display: flex;
+			align-items: center;
+			text-decoration: none;
+
+			&-arrow {
+				margin-left: 0.5rem;
+				width: 30px;
+			}
+		}
+	}
+</style>

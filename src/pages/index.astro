@@ -1,0 +1,110 @@
+---
+import '../styles/normalize.css';
+import '../styles/globals.scss';
+import Layout from "../layouts/Layout.astro";
+import Project_card from '../components/Project_card.astro';
+---
+
+<Layout title="Homepage">
+	<main>
+		<section class="hero">
+			<div class="wrap">
+				<div class="hero__inside">
+					<h1 class="hero__title title">Jonny Jones</h1>
+
+					<div class="hero__email">
+						<a href="mailto:hello@jonnyjones.dev" class="link">hello@jonnyjones.dev</a>
+					</div>
+
+					<div class="hero__flex">
+						<div class="hero__left">
+							<p class="hero__job-title">/ Web Developer</p>
+						</div>
+
+						<div class="hero__right">
+							<div class="hero__content">
+								<p>Based in Jersey.</p>
+								<p>Available for freelance</p>
+								<p>Get in touch.</p>
+							</div>
+
+							<ul class="hero__links">
+								<li><a href="#" class="link">LinkedIn</a></li>
+								<li><a href="#" class="link">CV</a></li>
+								<li><a href="#" class="link">CodePen</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="wrap">
+			<section class="my-work">
+				<Project_card href="#" projectnum="/ PROJECT #1" title="Citizens Advice Jersey" jobtitle="Development."
+					body="A highly functional, fully WCAG 2.1 compliant website."
+					body2="A full CMS database migration, a complete overhaul of the frontend and while maintaining high SEO."
+					imglink="/img/placeholder.png" imgalt="alt" />
+
+			</section>
+		</div>
+
+	</main>
+</Layout>
+
+<style lang="scss">
+	.hero {
+		background-color: var(--white);
+		color: var(--black);
+		height: 100vh;
+
+		&__inside {
+			padding-top: 270px;
+			padding-bottom: 6rem;
+			border-bottom: 6px solid var(--black);
+		}
+
+		&__title {
+			margin-bottom: 8rem;
+		}
+
+		&__email {
+			margin-bottom: 1rem;
+		}
+
+		&__job-title {
+			font-size: var(--fs-medium);
+		}
+
+		&__flex {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__right {
+			margin-right: 4rem;
+		}
+
+		&__content {
+			margin-bottom: 2rem;
+
+			p {
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		&__links {
+			display: flex;
+
+			li:not(:last-of-type) {
+				margin-right: 2.5rem;
+			}
+		}
+	}
+
+	.my-work {
+		height: 100vh;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+</style>
