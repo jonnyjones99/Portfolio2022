@@ -52,10 +52,6 @@ const { title, body, body2, jobtitle, href, imglink, imgalt, projectnum } = Astr
 
 	.project-card {
 		flex-shrink: 0;
-		padding-right: 10rem;
-		margin-right: 10rem;
-		border-right: 6px solid var(--black);
-
 
 		@include ltab {
 			display: flex;
@@ -122,5 +118,12 @@ const { title, body, body2, jobtitle, href, imglink, imgalt, projectnum } = Astr
 			width: 100%;
 			height: auto;
 		}
+	}
+
+
+	.project-card:not(:last-of-type) {
+		padding-right: 10rem;
+		margin-right: 10rem;
+		border-right: 6px solid var(--black);
 	}
 </style>
