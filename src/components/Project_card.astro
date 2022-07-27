@@ -37,7 +37,7 @@ const { title, body, body2, jobtitle, href, imglink, imgalt, projectnum } = Astr
 
 		<a href={href} class="project-card__link">
 			<span>VIEW PROJECT</span>
-			<img src="/public/svg/arrow.svg" alt="Click me arrow" class="project-card__link-arrow">
+			<img src="/svg/arrow.svg" alt="Click me arrow" class="project-card__link-arrow">
 		</a>
 	</div>
 
@@ -52,11 +52,18 @@ const { title, body, body2, jobtitle, href, imglink, imgalt, projectnum } = Astr
 
 	.project-card {
 		flex-shrink: 0;
+		padding-bottom: 4rem;
+		margin-bottom: 4rem;
+		border-bottom: 4px solid var(--black);
 
 		@include ltab {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border: 0;
 		}
 
 		&__left {
@@ -122,8 +129,10 @@ const { title, body, body2, jobtitle, href, imglink, imgalt, projectnum } = Astr
 
 
 	.project-card:not(:last-of-type) {
-		padding-right: 10rem;
-		margin-right: 10rem;
-		border-right: 6px solid var(--black);
+		@include ltab {
+			padding-right: 10rem;
+			margin-right: 10rem;
+			border-right: 6px solid var(--black);
+		}
 	}
 </style>

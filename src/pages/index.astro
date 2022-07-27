@@ -93,18 +93,12 @@ import Project_card from '../components/Project_card.astro';
 					</div>
 				</section>
 
-				<section class="about-me">
+				<section class="about-me about-me__align-center">
 					<div class="section__left">
 						<h2 class="subtitle">Get In Touch</h2>
 					</div>
 					<div class="section__right">
-						<p>I’m a developer currently based in Jersey, Channel Islands. I love what I do and I’ve helped
-							bring
-							many websites to live during my time working.</p>
-						<p>I work the end-to-end process when it comes to building websites. From proposals, to design,
-							to
-							development. Working with clients to refine requirements, and communicating to clients.</p>
-						<p>Times Person of the Year 2006</p>
+						<a href="mailto:hello@jonnyjones.dev" class="contact-btn">hello@jonnyjones.dev</a>
 					</div>
 				</section>
 
@@ -183,33 +177,65 @@ import Project_card from '../components/Project_card.astro';
 	}
 
 	.my-work {
-		height: calc(100vh - 8rem);
 		padding-top: 4rem;
 		padding-bottom: 4rem;
-		display: flex;
-		width: 5315px;
+
+		@include ltab {
+			display: flex;
+			width: 5315px;
+			height: calc(100vh - 8rem);
+		}
 	}
 
 
 	.about-me {
-		padding-top: 8rem;
-		padding-bottom: 8rem;
-		margin-bottom: 8rem;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
 		border-bottom: 2px solid var(--white);
 
-		display: flex;
+		&__align-center {
+			align-items: center;
+		}
+
+		@include tablet {
+			display: flex;
+			padding-top: 10rem;
+			padding-bottom: 10rem;
+
+		}
 	}
 
 	.section__left {
-		width: 600px;
 		margin-right: 2rem;
+
+		@include ltab {
+			width: 600px;
+		}
 	}
 
 	.section__right {
-		width: 617px;
+		@include ltab {
+			width: 617px;
+		}
 
 		p {
 			margin-bottom: 1rem;
+		}
+	}
+
+	.contact-btn {
+		font-family: var(--ff-bold);
+		color: var(--white);
+		font-size: var(--fs-regular);
+		text-decoration: none;
+		border: 6px solid var(--white);
+		padding: 0.75rem 2rem;
+		border-radius: 999px;
+		transition: 150ms;
+
+		&:hover {
+			background-color: var(--white);
+			color: var(--black);
 		}
 	}
 </style>
