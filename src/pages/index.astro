@@ -5,6 +5,9 @@ import Layout from "../layouts/Layout.astro";
 import Project_card from '../components/Project_card.astro';
 ---
 
+<script src='src/functions.js' type="module" />
+
+
 <Layout title="Homepage">
 	<main>
 		<section class="hero">
@@ -39,9 +42,19 @@ import Project_card from '../components/Project_card.astro';
 			</div>
 		</section>
 
+
+
 		<div class="wrap">
-			<section class="my-work">
+			<section id="my-work" class="my-work">
 				<Project_card href="#" projectnum="/ PROJECT #1" title="Citizens Advice Jersey" jobtitle="Development."
+					body="A highly functional, fully WCAG 2.1 compliant website."
+					body2="A full CMS database migration, a complete overhaul of the frontend and while maintaining high SEO."
+					imglink="/img/placeholder.png" imgalt="alt" />
+				<Project_card href="#" projectnum="/ PROJECT #2" title="IPHR (Contact Tracing)"
+					jobtitle="System Architecture." body="A highly functional, fully WCAG 2.1 compliant website."
+					body2="A full CMS database migration, a complete overhaul of the frontend and while maintaining high SEO."
+					imglink="/img/placeholder.png" imgalt="alt" />
+				<Project_card href="#" projectnum="/ PROJECT #3" title="Citizens Advice Jersey" jobtitle="Development."
 					body="A highly functional, fully WCAG 2.1 compliant website."
 					body2="A full CMS database migration, a complete overhaul of the frontend and while maintaining high SEO."
 					imglink="/img/placeholder.png" imgalt="alt" />
@@ -49,23 +62,86 @@ import Project_card from '../components/Project_card.astro';
 			</section>
 		</div>
 
+
+		<div class="bg--black">
+			<div class="wrap">
+
+				<section class="about-me">
+					<div class="section__left">
+						<h2 class="subtitle">About Me</h2>
+					</div>
+					<div class="section__right">
+						<p>I’m a developer currently based in Jersey, Channel Islands. I love what I do and I’ve helped
+							bring
+							many websites to live during my time working.</p>
+						<p>I work the end-to-end process when it comes to building websites. From proposals, to design,
+							to
+							development. Working with clients to refine requirements, and communicating to clients.</p>
+						<p>Times Person of the Year 2006</p>
+					</div>
+				</section>
+
+				<section class="about-me">
+					<div class="section__left">
+						<h2 class="subtitle">Experience</h2>
+					</div>
+					<div class="section__right">
+						<p>I’m a developer currently based in Jersey, Channel Islands. I love what I do and I’ve helped
+							bring
+							many websites to live during my time working.</p>
+						<p>I work the end-to-end process when it comes to building websites. From proposals, to design,
+							to
+							development. Working with clients to refine requirements, and communicating to clients.</p>
+						<p>Times Person of the Year 2006</p>
+					</div>
+				</section>
+
+				<section class="about-me">
+					<div class="section__left">
+						<h2 class="subtitle">Get In Touch</h2>
+					</div>
+					<div class="section__right">
+						<p>I’m a developer currently based in Jersey, Channel Islands. I love what I do and I’ve helped
+							bring
+							many websites to live during my time working.</p>
+						<p>I work the end-to-end process when it comes to building websites. From proposals, to design,
+							to
+							development. Working with clients to refine requirements, and communicating to clients.</p>
+						<p>Times Person of the Year 2006</p>
+					</div>
+				</section>
+
+
+
+			</div>
+		</div>
+
 	</main>
 </Layout>
 
 <style lang="scss">
+	@use '../styles/_mixins.scss' as *;
+
 	.hero {
 		background-color: var(--white);
 		color: var(--black);
-		height: 100vh;
 
 		&__inside {
-			padding-top: 270px;
+			padding-top: 200px;
 			padding-bottom: 6rem;
 			border-bottom: 6px solid var(--black);
+
+			@include tablet {
+				padding-top: 270px;
+			}
 		}
 
 		&__title {
-			margin-bottom: 8rem;
+			margin-bottom: 4rem;
+
+			@include tablet {
+				margin-bottom: 8rem;
+			}
 		}
 
 		&__email {
@@ -74,11 +150,18 @@ import Project_card from '../components/Project_card.astro';
 
 		&__job-title {
 			font-size: var(--fs-medium);
+			margin-bottom: 4rem;
+
+			@include tablet {
+				margin-bottom: 0;
+			}
 		}
 
 		&__flex {
-			display: flex;
-			justify-content: space-between;
+			@include tablet {
+				display: flex;
+				justify-content: space-between;
+			}
 		}
 
 		&__right {
@@ -103,8 +186,33 @@ import Project_card from '../components/Project_card.astro';
 	}
 
 	.my-work {
-		height: 100vh;
+		height: calc(100vh - 8rem);
 		padding-top: 4rem;
 		padding-bottom: 4rem;
+		display: flex;
+		width: 5500px;
+	}
+
+
+	.about-me {
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+		margin-bottom: 8rem;
+		border-bottom: 2px solid var(--white);
+
+		display: flex;
+	}
+
+	.section__left {
+		width: 600px;
+		margin-right: 2rem;
+	}
+
+	.section__right {
+		width: 617px;
+
+		p {
+			margin-bottom: 1rem;
+		}
 	}
 </style>

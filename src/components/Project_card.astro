@@ -39,20 +39,36 @@ const { title, body, body2, jobtitle, href, imglink, imgalt, projectnum } = Astr
 			<span>VIEW PROJECT</span>
 			<img src="/public/svg/arrow.svg" alt="Click me arrow" class="project-card__link-arrow">
 		</a>
-
 	</div>
+
 	<div class="project-card__right">
 		<img src={imglink} alt={imgalt} class="project-card__img">
 	</div>
+
 </article>
 
 <style lang="scss">
+	@use '../styles/_mixins.scss' as *;
+
 	.project-card {
-		display: flex;
-		justify-content: space-between;
+		flex-shrink: 0;
+		padding-right: 10rem;
+		margin-right: 10rem;
+		border-right: 6px solid var(--black);
+
+
+		@include ltab {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
 
 		&__left {
 			margin-right: 2rem;
+
+			@include tablet {
+				max-width: 57ch;
+			}
 		}
 
 		&__num {
@@ -62,11 +78,19 @@ const { title, body, body2, jobtitle, href, imglink, imgalt, projectnum } = Astr
 		}
 
 		&__title {
-			margin-bottom: 4rem;
+			margin-bottom: 2rem;
+
+			@include ltab {
+				margin-bottom: 4rem;
+			}
 		}
 
 		&__job-title {
-			margin-bottom: 4rem;
+			margin-bottom: 2rem;
+
+			@include ltab {
+				margin-bottom: 4rem;
+			}
 		}
 
 		&__body {
@@ -74,7 +98,11 @@ const { title, body, body2, jobtitle, href, imglink, imgalt, projectnum } = Astr
 			font-size: var(--fs-regular);
 
 			&-second {
-				margin-bottom: 8rem;
+				margin-bottom: 2rem;
+
+				@include ltab {
+					margin-bottom: 8rem;
+				}
 			}
 		}
 
@@ -88,6 +116,11 @@ const { title, body, body2, jobtitle, href, imglink, imgalt, projectnum } = Astr
 				margin-left: 0.5rem;
 				width: 30px;
 			}
+		}
+
+		&__img {
+			width: 100%;
+			height: auto;
 		}
 	}
 </style>
