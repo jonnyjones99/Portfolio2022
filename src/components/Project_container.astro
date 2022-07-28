@@ -18,12 +18,46 @@ import Project_card from '../components/Project_card.astro';
             body="A highly functional, fully WCAG 2.1 compliant website."
             body2="A full CMS database migration, a complete overhaul of the frontend and while maintaining high SEO."
             imglink="/img/placeholder.png" imgalt="alt" />
-
     </section>
 </div>
 
 
-<script src='src/functions.js' type="module" />
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.matchMedia({
+        // small
+        "(min-width: 599px)": function () {
+            // The ScrollTriggers created inside these functions are segregated and get
+            // reverted/killed when the media query doesn't match anymore.
+
+            gsap.to(".my-work", {
+                xPercent: -100,
+                x: () => innerWidth,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".my-work",
+                    start: "top top",
+                    end: () => innerWidth * 3,
+                    scrub: true,
+                    pin: true,
+                    invalidateOnRefresh: true,
+                    anticipatePin: 1,
+                },
+            });
+        },
+
+        // all
+        all: function () {
+            // ScrollTriggers created here aren't associated with a particular media query,
+            // so they persist.
+        },
+    });
+</script>
+
 
 
 <style lang="scss">
