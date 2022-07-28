@@ -2,7 +2,7 @@
 import '../styles/normalize.css';
 import '../styles/globals.scss';
 import Layout from "../layouts/Layout.astro";
-import Project_card from '../components/Project_card.astro';
+import Project_container from '../components/Project_container.astro';
 ---
 
 <Layout title="Homepage">
@@ -39,26 +39,7 @@ import Project_card from '../components/Project_card.astro';
 			</div>
 		</section>
 
-
-
-		<div class="wrap">
-			<section id="my-work" class="my-work">
-				<Project_card href="#" projectnum="/ PROJECT #1" title="Citizens Advice Jersey" jobtitle="Development."
-					body="A highly functional, fully WCAG 2.1 compliant website."
-					body2="A full CMS database migration, a complete overhaul of the frontend and while maintaining high SEO."
-					imglink="/img/placeholder.png" imgalt="alt" />
-				<Project_card href="#" projectnum="/ PROJECT #2" title="IPHR (Contact Tracing)"
-					jobtitle="System Architecture." body="A highly functional, fully WCAG 2.1 compliant website."
-					body2="A full CMS database migration, a complete overhaul of the frontend and while maintaining high SEO."
-					imglink="/img/placeholder.png" imgalt="alt" />
-				<Project_card href="#" projectnum="/ PROJECT #3" title="Citizens Advice Jersey" jobtitle="Development."
-					body="A highly functional, fully WCAG 2.1 compliant website."
-					body2="A full CMS database migration, a complete overhaul of the frontend and while maintaining high SEO."
-					imglink="/img/placeholder.png" imgalt="alt" />
-
-			</section>
-		</div>
-
+		<Project_container client:load />
 
 		<div class="bg--black">
 			<div class="wrap">
@@ -175,18 +156,6 @@ import Project_card from '../components/Project_card.astro';
 			}
 		}
 	}
-
-	.my-work {
-		padding-top: 4rem;
-		padding-bottom: 4rem;
-
-		@include ltab {
-			display: flex;
-			width: 5315px;
-			height: calc(100vh - 8rem);
-		}
-	}
-
 
 	.about-me {
 		padding-top: 4rem;
