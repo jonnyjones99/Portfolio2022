@@ -44,7 +44,7 @@ import Project_container from '../components/Project_container.astro';
 		<div class="bg--black">
 			<div class="wrap">
 
-				<section class="about-me">
+				<section class="about-me about-me-first">
 					<div class="section__left">
 						<h2 class="subtitle">About Me</h2>
 					</div>
@@ -59,7 +59,7 @@ import Project_container from '../components/Project_container.astro';
 					</div>
 				</section>
 
-				<section class="about-me">
+				<section class="about-me about-me-second">
 					<div class="section__left">
 						<h2 class="subtitle">Experience</h2>
 					</div>
@@ -74,7 +74,7 @@ import Project_container from '../components/Project_container.astro';
 					</div>
 				</section>
 
-				<section class="about-me about-me__align-center">
+				<section class="about-me about-me-third about-me__align-center">
 					<div class="section__left">
 						<h2 class="subtitle">Get In Touch</h2>
 					</div>
@@ -90,6 +90,7 @@ import Project_container from '../components/Project_container.astro';
 
 	</main>
 </Layout>
+
 
 <style lang="scss">
 	@use '../styles/_mixins.scss' as *;
@@ -160,10 +161,14 @@ import Project_container from '../components/Project_container.astro';
 	.about-me {
 		padding-top: 4rem;
 		padding-bottom: 4rem;
-		border-bottom: 2px solid var(--white);
+		opacity: 0.3;
 
 		&__align-center {
 			align-items: center;
+		}
+
+		&:not(:last-of-type){
+			border-bottom: 2px solid var(--white);
 		}
 
 		@include tablet {
@@ -172,6 +177,15 @@ import Project_container from '../components/Project_container.astro';
 			padding-bottom: 10rem;
 
 		}
+
+
+		.subtitle{
+			margin-bottom: 2rem;
+		}
+	}
+
+	.about-me-third{
+		padding-bottom: 20rem;
 	}
 
 	.section__left {

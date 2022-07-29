@@ -56,6 +56,64 @@ import Project_card from '../components/Project_card.astro';
             // so they persist.
         },
     });
+
+
+    const containers = gsap.utils.toArray(".about-me");
+containers.forEach((container) => {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container,
+      scrub: true,
+    }
+  });
+
+  tl.to(container, {
+    autoAlpha: 1
+  }).to(
+    container,
+    {
+      autoAlpha: 0.3
+    },
+    0.5
+  );
+});
+
+    
+/*
+    gsap.to(".about-me-first", {
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+            trigger: ".about-me-first",
+            start: "250",
+            end: "200", // end after scrolling 500px beyond the start
+            markers: true
+        },
+    });
+
+
+    gsap.to(".about-me-second", {
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+            trigger: ".about-me",
+            start: "250", // when the top of the trigger hits the top of the viewport
+            end: "250", // end after scrolling 500px beyond the start
+            markers: true,
+        },
+    });
+
+    gsap.to(".about-me-third", {
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+            trigger: ".about-me-second",
+            start: 100, // when the top of the trigger hits the top of the viewport
+            end: "bottom 50%+=100px", // end after scrolling 500px beyond the start
+             markers: true
+        },
+    });
+*/
 </script>
 
 
