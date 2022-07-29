@@ -22,9 +22,9 @@ const { title } = Astro.props as Props;
 	<nav>
 		<div class="wrap">
 			<ul class="header__nav">
-				<li class="header__list-item"><a class="link header__link" href="#">Home</a></li>
-				<li class="header__list-item"><a class="link header__link" href="#">Projects</a></li>
-				<li class="header__list-item"><a class="link header__link" href="#">Contact</a></li>
+				<li class="header__list-item"><a class="link header__link" href="/">Home</a></li>
+				<li class="header__list-item"><a class="link header__link" href="/#my-work">Projects</a></li>
+				<li class="header__list-item"><a class="link header__link" href="/#contact">Contact</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -33,6 +33,12 @@ const { title } = Astro.props as Props;
 <body>
 	<slot />
 </body>
+
+<footer class="bg--black">
+	<div class="wrap">
+		<p class="footer__copyright">© Jonny Jones. All Rights Reserved.</p>
+	</div>
+</footer>
 
 <Buttons />
 
@@ -53,5 +59,16 @@ const { title } = Astro.props as Props;
 			margin-right: 1rem;
 		}
 
+	}
+
+
+	footer {
+		padding-top: 2rem;
+		padding-bottom: 6rem;
+	}
+
+	.footer__copyright {
+		color: var(--grey);
+		font-size: var(--fs-small);
 	}
 </style>

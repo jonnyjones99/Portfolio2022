@@ -25,7 +25,7 @@ import Project_container from '../components/Project_container.astro';
 							<div class="hero__content">
 								<p>Based in Jersey.</p>
 								<p>Available for freelance</p>
-								<p>Get in touch.</p>
+								<a href="#contact">Get in touch.</a>
 							</div>
 
 							<ul class="hero__links">
@@ -74,9 +74,15 @@ import Project_container from '../components/Project_container.astro';
 					</div>
 				</section>
 
-				<section class="about-me about-me-third about-me__align-center">
+				<section id="contact" class="about-me about-me-third about-me__align-center">
 					<div class="section__left">
 						<h2 class="subtitle">Get In Touch</h2>
+
+						<ul class="contact__links">
+							<li><a class="link" href="#">LinkedIn</a></li>
+							<li><a class="link" href="#">GitHub</a></li>
+							<li><a class="link" href="#">CodePen</a></li>
+						</ul>
 					</div>
 					<div class="section__right">
 						<a href="mailto:hello@jonnyjones.dev" class="contact-btn">hello@jonnyjones.dev</a>
@@ -145,7 +151,17 @@ import Project_container from '../components/Project_container.astro';
 			margin-bottom: 2rem;
 
 			p {
-				margin-bottom: 0.5rem;
+				margin-bottom: 0.25rem;
+				line-height: unset;
+			}
+
+			a {
+				margin-bottom: 0.25rem;
+				font-size: var(--fs-regular);
+				text-decoration: none;
+				color: var(--black);
+				line-height: unset;
+
 			}
 		}
 
@@ -167,7 +183,7 @@ import Project_container from '../components/Project_container.astro';
 			align-items: center;
 		}
 
-		&:not(:last-of-type){
+		&:not(:last-of-type) {
 			border-bottom: 2px solid var(--white);
 		}
 
@@ -179,13 +195,18 @@ import Project_container from '../components/Project_container.astro';
 		}
 
 
-		.subtitle{
+		.subtitle {
 			margin-bottom: 2rem;
 		}
 	}
 
-	.about-me-third{
-		padding-bottom: 20rem;
+	.about-me-third {
+		padding-bottom: 12rem;
+		align-items: flex-start;
+
+		.contact-btn {
+			display: inline-block;
+		}
 	}
 
 	.section__left {
@@ -219,6 +240,14 @@ import Project_container from '../components/Project_container.astro';
 		&:hover {
 			background-color: var(--white);
 			color: var(--black);
+		}
+	}
+
+	.contact__links {
+		display: flex;
+
+		li:not(:last-of-type) {
+			margin-right: 1.25rem;
 		}
 	}
 </style>

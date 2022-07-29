@@ -12,7 +12,7 @@
 
   --fs-massive: clamp(2rem, 10vw + 1rem, 11.25rem);
   --fs-big: clamp(1.7rem, 10vw + 0.25rem, 4.688rem);
-  --fs-medium: clamp(1.25rem, 10vw + 0.25rem, 2.625rem);
+  --fs-medium: clamp(1.25rem, 2vw + 1.5rem, 2.625rem);
   --fs-regular: 1.5rem;
   --fs-small: 1.25rem;
 }
@@ -38,12 +38,16 @@ html, body{
   height: 100%;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 // TYPOGAPHY
 body {
   font-family: var(--ff-body);
   font-size: 16px;
   overflow-x: hidden;
-
+  line-height: 1.3;
 }
 
 .title {
