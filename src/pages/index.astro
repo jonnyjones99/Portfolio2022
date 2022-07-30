@@ -64,13 +64,20 @@ import Project_container from '../components/Project_container.astro';
 						<h2 class="subtitle">Experience</h2>
 					</div>
 					<div class="section__right">
-						<p>I’m a developer currently based in Jersey, Channel Islands. I love what I do and I’ve helped
-							bring
-							many websites to live during my time working.</p>
-						<p>I work the end-to-end process when it comes to building websites. From proposals, to design,
-							to
-							development. Working with clients to refine requirements, and communicating to clients.</p>
-						<p>Times Person of the Year 2006</p>
+						<ul class="experience-list">
+							<li>Web Development</li>
+							<li>System Architecture</li>
+							<li>Node</li>
+							<li>JS</li>
+							<li>Shopify</li>
+							<li>Wordpress Theme Development</li>
+							<li>Dynamics 365</li>
+							<li>Powerapps</li>
+							<li>Power BI</li>
+							<li>Ux Design</li>
+							<li>Modern Web Design</li>
+							<li>Web Animations</li>
+						</ul>
 					</div>
 				</section>
 
@@ -198,6 +205,11 @@ import Project_container from '../components/Project_container.astro';
 		.subtitle {
 			margin-bottom: 2rem;
 		}
+	}
+
+	.experience-list {
+		column-count: 2;
+		font-size: var(--fs-regular);
 	}
 
 	.about-me-third {

@@ -6,17 +6,17 @@ import Project_card from '../components/Project_card.astro';
 
 <div class="wrap">
     <section id="my-work" class="my-work">
-        <Project_card href="#" projectnum="/ PROJECT #1" title="Citizens Advice Jersey" jobtitle="Development."
+        <Project_card href="" projectnum="/ PROJECT #1" title="Citizens Advice Jersey" jobtitle="Development."
             body="A highly functional, fully WCAG 2.1 compliant website."
             body2="A full CMS database migration, a complete overhaul of the frontend and while maintaining high SEO."
-            imglink="/img/placeholder.png" imgalt="alt" />
+            imglink="/img/caj.png" imgalt="alt" />
         <Project_card href="#" projectnum="/ PROJECT #2" title="IPHR (Contact Tracing)" jobtitle="System Architecture."
             body="High + Low Level design of the system. Focus on the Refinement of components to increase productivity of Contact Tracers using the System."
-            imglink="/img/placeholder.png" imgalt="alt" />
+            body2="" imglink="/img/crm.png" imgalt="alt" />
         <Project_card href="#" projectnum="/ PROJECT #3" title="Jersey Talking Therapies"
             jobtitle="Development + Design." body="Creating an end-to-end process for users to self refer themselves."
             body2="Focusing on UX with modern, clean design. While keeping the website fully WCAG 2.1 Compliant."
-            imglink="/img/placeholder.png" imgalt="alt" />
+            imglink="/img/jtt.png" imgalt="alt" />
     </section>
 </div>
 
@@ -28,11 +28,7 @@ import Project_card from '../components/Project_card.astro';
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.matchMedia({
-        // small
-        "(min-width: 599px)": function () {
-            // The ScrollTriggers created inside these functions are segregated and get
-            // reverted/killed when the media query doesn't match anymore.
-
+        "(min-width: 1024px)": function () {
             gsap.to(".my-work", {
                 xPercent: -100,
                 x: () => innerWidth,
@@ -126,7 +122,8 @@ import Project_card from '../components/Project_card.astro';
 
         @include ltab {
             display: flex;
-            width: 5315px;
+            // width: 5315px;
+            width: 5515px;
             height: calc(100vh - 8rem);
         }
     }

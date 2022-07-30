@@ -130,6 +130,13 @@ const { title, body, body2, jobtitle, href, imglink, imgalt, projectnum } = Astr
 		&__img {
 			width: 100%;
 			height: auto;
+
+			@include ltab {
+				max-width: 780px;
+				object-fit: cover;
+				border: 4PX SOLID black;
+				border-radius: 22px;
+			}
 		}
 	}
 
