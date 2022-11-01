@@ -10,65 +10,65 @@ const { title } = Astro.props as Props;
 
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<title>{title}</title>
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-	<title>{title}</title>
-</head>
+	<header class="header">
+		<nav>
+			<div class="wrap">
+				<ul class="header__nav">
+					<li class="header__list-item">
+						<a class="link header__link" href="/">Home</a>
+					</li>
+					<li class="header__list-item">
+						<a class="link header__link" href="/#my-work">Projects</a>
+					</li>
+					<li class="header__list-item">
+						<a class="link header__link" href="/#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 
-<header class="header">
-	<nav>
-		<div class="wrap">
-			<ul class="header__nav">
-				<li class="header__list-item"><a class="link header__link" href="/">Home</a></li>
-				<li class="header__list-item"><a class="link header__link" href="/#my-work">Projects</a></li>
-				<li class="header__list-item"><a class="link header__link" href="/#contact">Contact</a></li>
-			</ul>
-		</div>
-	</nav>
-</header>
-
-<body>
 	<slot />
-</body>
 
-<footer class="bg--black">
-	<div class="wrap">
-		<p class="footer__copyright">© Jonny Jones. All Rights Reserved.</p>
-	</div>
-</footer>
+	<footer class="bg--black">
+		<div class="wrap">
+			<p class="footer__copyright">© Jonny Jones. All Rights Reserved.</p>
+		</div>
+	</footer>
 
-<Buttons />
+	<Buttons />
 
+	<style lang="scss">
+		.header {
+			&__nav {
+				padding-top: 1rem;
+				display: flex;
+				align-items: center;
+				width: 100%;
+				justify-content: flex-end;
+			}
 
+			&__list-item:not(:last-of-type) {
+				margin-right: 1rem;
+			}
+		}
+
+		footer {
+			padding-top: 2rem;
+			padding-bottom: 6rem;
+		}
+
+		.footer__copyright {
+			color: var(--grey);
+			font-size: var(--fs-small);
+		}
+	</style>
 
 </html>
-<style lang="scss">
-	.header {
-		&__nav {
-			padding-top: 1rem;
-			display: flex;
-			align-items: center;
-			width: 100%;
-			justify-content: flex-end;
-		}
-
-		&__list-item:not(:last-of-type) {
-			margin-right: 1rem;
-		}
-
-	}
-
-
-	footer {
-		padding-top: 2rem;
-		padding-bottom: 6rem;
-	}
-
-	.footer__copyright {
-		color: var(--grey);
-		font-size: var(--fs-small);
-	}
-</style>

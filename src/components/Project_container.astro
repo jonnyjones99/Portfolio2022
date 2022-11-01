@@ -1,130 +1,82 @@
 ---
-import '../styles/normalize.css';
-import '../styles/globals.scss';
-import Project_card from '../components/Project_card.astro';
+import "../styles/normalize.css";
+import "../styles/globals.scss";
+import Project_card from "../components/Project_card.astro";
 ---
 
 <div class="wrap">
-    <section id="my-work" class="my-work">
-        <Project_card href="" projectnum="/ PROJECT #1" title="Citizens Advice Jersey" jobtitle="Development."
-            body="A highly functional, fully WCAG 2.1 compliant website."
-            body2="A full CMS database migration, a complete overhaul of the frontend and while maintaining high SEO."
-            imglink="/img/caj.png" imgalt="alt" />
-        <Project_card href="#" projectnum="/ PROJECT #2" title="IPHR (Contact Tracing)" jobtitle="System Architecture."
-            body="High + Low Level design of the system. Focus on the Refinement of components to increase productivity of Contact Tracers using the System."
-            body2="" imglink="/img/crm.png" imgalt="alt" />
-        <Project_card href="#" projectnum="/ PROJECT #3" title="Jersey Talking Therapies"
-            jobtitle="Development + Design." body="Creating an end-to-end process for users to self refer themselves."
-            body2="Focusing on UX with modern, clean design. While keeping the website fully WCAG 2.1 Compliant."
-            imglink="/img/jtt.png" imgalt="alt" />
-    </section>
+	<section id="my-work" class="my-work">
+		<Project_card
+			href=""
+			projectnum="/ PROJECT #1"
+			title="Citizens Advice Jersey"
+			jobtitle="Development."
+			body="A highly functional, fully WCAG 2.1 compliant website."
+			body2="A full CMS database migration, a complete overhaul of the frontend and while maintaining high SEO."
+			imglink="/img/caj.png"
+			imgalt="alt"
+		/>
+		<Project_card
+			projectnum="/ PROJECT #2"
+			title="IPHR (Contact Tracing)"
+			jobtitle="System Architecture."
+			body="High + Low Level design of the system. Focus on the Refinement of components to increase productivity of Contact Tracers using the System."
+			body2=""
+			imglink="/img/crm.png"
+			imgalt="alt"
+		/>
+		<Project_card
+			href="#"
+			projectnum="/ PROJECT #3"
+			title="Jersey Talking Therapies"
+			jobtitle="Development + Design."
+			body="Creating an end-to-end process for users to self refer themselves. Focusing on UX with modern, clean design. While keeping the website fully WCAG 2.1 Compliant."
+			body2=""
+			imglink="/img/jtt.png"
+			imgalt="alt"
+		/>
+	</section>
 </div>
 
-
 <script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-    gsap.registerPlugin(ScrollTrigger);
+	gsap.registerPlugin(ScrollTrigger);
 
-    ScrollTrigger.matchMedia({
-        "(min-width: 1024px)": function () {
-            gsap.to(".my-work", {
-                xPercent: -100,
-                x: () => innerWidth,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: ".my-work",
-                    start: "top top",
-                    end: () => innerWidth * 3,
-                    scrub: true,
-                    pin: true,
-                    invalidateOnRefresh: true,
-                    anticipatePin: 1,
-                },
-            });
-        },
+	const containers = gsap.utils.toArray(".about-me");
+	containers.forEach((container) => {
+		let tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: container,
+				scrub: true,
+			},
+		});
 
-        // all
-        all: function () {
-            // ScrollTriggers created here aren't associated with a particular media query,
-            // so they persist.
-        },
-    });
-
-
-    const containers = gsap.utils.toArray(".about-me");
-    containers.forEach((container) => {
-        let tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: container,
-                scrub: true,
-            }
-        });
-
-        tl.to(container, {
-            autoAlpha: 1
-        }).to(
-            container,
-            {
-                autoAlpha: 0.3
-            },
-            0.3
-        );
-    });
-
-
-    /*
-        gsap.to(".about-me-first", {
-            opacity: 1,
-            duration: 1,
-            scrollTrigger: {
-                trigger: ".about-me-first",
-                start: "250",
-                end: "200", // end after scrolling 500px beyond the start
-                markers: true
-            },
-        });
-    
-    
-        gsap.to(".about-me-second", {
-            opacity: 1,
-            duration: 1,
-            scrollTrigger: {
-                trigger: ".about-me",
-                start: "250", // when the top of the trigger hits the top of the viewport
-                end: "250", // end after scrolling 500px beyond the start
-                markers: true,
-            },
-        });
-    
-        gsap.to(".about-me-third", {
-            opacity: 1,
-            duration: 1,
-            scrollTrigger: {
-                trigger: ".about-me-second",
-                start: 100, // when the top of the trigger hits the top of the viewport
-                end: "bottom 50%+=100px", // end after scrolling 500px beyond the start
-                 markers: true
-            },
-        });
-    */
+		tl.to(container, {
+			autoAlpha: 1,
+		}).to(
+			container,
+			{
+				autoAlpha: 0.3,
+			},
+			0.3
+		);
+	});
 </script>
 
-
-
 <style lang="scss">
-    @use '../styles/_mixins.scss' as *;
+	@use "../styles/_mixins.scss" as *;
 
-    .my-work {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
+	.my-work {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
 
-        @include ltab {
-            display: flex;
-            // width: 5315px;
-            width: 5515px;
-            height: calc(100vh - 8rem);
-        }
-    }
+		@include ltab {
+			// width: 5315px;
+			// width: 5515px;
+			// height: calc(100vh - 8rem);
+			// width: calc(3 * var(--card-width));
+		}
+	}
 </style>
